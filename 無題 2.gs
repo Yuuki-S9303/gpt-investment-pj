@@ -1,9 +1,9 @@
 /** ❶ WebhookをScript Propertiesに登録（reporting / logs の2本） */
 function setWebhooks_multi(){
   const p = PropertiesService.getScriptProperties();
-  // ▼ここをあなたのURLに置き換え（本番）
-  const REPORTING = 'https://discord.com/api/webhooks/1430141975352442880/2ZHscfY5RCc4tlwqPbaeqV4qwieh2M0J9sqm7g6mSMfp7Og4MAsvPE3LXzAxuQAKdEQ1';
-  const LOGS      = 'https://discord.com/api/webhooks/1434179780630155265/k950DxlAG-Vf2TKgBRPgZL9jdsX3RuZ9_c_roqokxWN3bzNJVdf4E53rISCP-MTZWfWU';
+  // ▼新しいWebhook URLをここに直接入力してからGAS上で実行してください（このファイルはコミットしない）
+  const REPORTING = 'YOUR_NEW_REPORTING_WEBHOOK_URL_HERE';
+  const LOGS      = 'YOUR_NEW_LOGS_WEBHOOK_URL_HERE';
 
   p.setProperty('DISCORD_WEBHOOK_REPORTING', REPORTING);
   p.setProperty('DISCORD_WEBHOOK_LOGS',      LOGS);

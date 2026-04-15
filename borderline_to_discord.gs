@@ -43,15 +43,15 @@ const COL_L_SELL_DATE  = 6;  // 売却日（未決済ポジションはここが
 const COL_L_SELL_PRICE = 7;  // 売却単価
 const COL_L_MEMO       = 13; // メモ（必要なら後で使えるように定義）
 
-/** Discord Webhook: ボーダーライン用（ボーダー通知チャンネル） */
-const PROP_DISCORD_BORDERLINE = 'https://discord.com/api/webhooks/1439176930594127984/Qh31MBud679lE1WZLF7o3p6c_tLP7TG5ozBZeToIGe6dhTMFoyzTVM_AHP8jDWE702a4';
+/** Discord Webhook: ボーダーライン用（スクリプトプロパティ: DISCORD_WEBHOOK_BORDERLINE） */
+const PROP_DISCORD_BORDERLINE = 'DISCORD_WEBHOOK_BORDERLINE';
 
-/** Discord Webhook: リマインド用（S株締切リマインドチャンネル） */
-const PROP_DISCORD_REMIND = 'https://discord.com/api/webhooks/1439176281597153434/eSjZ2DEFHGK88uB32k6-IywPwVH6VPkY-QHGTIc5VZT8KANLkZTIhtrTzcndxUFa6ebF';
+/** Discord Webhook: リマインド用（スクリプトプロパティ: DISCORD_WEBHOOK_REMIND） */
+const PROP_DISCORD_REMIND = 'DISCORD_WEBHOOK_REMIND';
 
 /** ボーダーライン用チャンネルに送る */
 function postDiscordBorderline_(content){
-   const url = PROP_DISCORD_BORDERLINE;  // ←ここだけ変える
+  const url = PropertiesService.getScriptProperties().getProperty(PROP_DISCORD_BORDERLINE);
     if (!url) {
     console.warn('postDiscordBorderline_: webhook URL not set');
     return;
@@ -68,7 +68,7 @@ function postDiscordBorderline_(content){
 
 /** リマインド用チャンネルに送る */
 function postDiscordRemind_(content){
-  const url = PROP_DISCORD_REMIND;      // ←ここだけ変える
+  const url = PropertiesService.getScriptProperties().getProperty(PROP_DISCORD_REMIND);
     if (!url) {
     console.warn('postDiscordRemind_: webhook URL not set');
     return;
